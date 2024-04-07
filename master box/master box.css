@@ -1,0 +1,67 @@
+/* Общие стили */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #333;
+}
+
+/* Стили для страницы */
+@page {
+  size: 210mm 297mm;
+  margin: 2cm;
+}
+
+/* Стили для блоков */
+.item-description,
+.trade-mark,
+.quantity,
+.materials,
+.manufacturer,
+.importer,
+.trademark-note,
+.compliance,
+.production-details {
+  margin-bottom: 20px;
+  font-size: 14px; /* Дополнительный стиль для некоторых блоков */
+}
+
+/* Стили для заголовков в блоках */
+.item-description strong,
+.trade-mark strong,
+.quantity strong,
+.materials strong,
+.manufacturer strong,
+.importer strong,
+.trademark-note strong,
+.compliance strong,
+.production-details strong {
+  margin-right: 5px;
+}
+
+/* Стили для выделенных элементов в блоках */
+.item-description .item-en,
+.trade-mark .trade-mark-en,
+.production-details .production-date,
+.production-details .item-number,
+.production-details .size,
+.production-details .color-en {
+  font-weight: bold;
+}
+
+/* Стили для курсива в блоках */
+.production-details .color-ru,
+.trade-mark .trade-mark-ru,
+.materials .materials-ru,
+.manufacturer .manufacturer-address,
+.manufacturer .country-of-production-ru,
+.importer .country-of-production-ru,
+.compliance {
+  font-style: italic;
+}
+
+/* Дополнительные стили для некоторых блоков */
+.production-details,
+.production-details strong {
+  text-align: right;
+}

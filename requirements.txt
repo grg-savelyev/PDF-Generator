@@ -1,0 +1,4 @@
+Download and install wkhtmltopdf (for Windows) from the link: https://wkhtmltopdf.org/downloads.html
+Jinja2==3.1.3
+MarkupSafe==2.1.5
+pdfkit==1.0.0
