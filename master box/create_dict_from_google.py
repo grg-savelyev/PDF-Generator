@@ -1,12 +1,14 @@
 import gspread
 import pandas as pd
+from pprint import pprint
 
 
 def master_box_dict(df) -> dict:
-    new_dict = dict(zip(df['ean_13'],
-                        zip(df['size'], df['color_ru'], df['color_en'], df['item_number'], df['item_ru'],
-                            df['item_en'], df['materials_ru'], df['materials_en'], df['manufacturer'],
-                            df['date_of_manufacture'], df['name_folders'].str.replace(':', '_'))))
+    new_dict = dict(zip(df['barcode'],
+                        zip(df['item'], df['item_name_ru'], df['item_name_en'],
+                            df['color_ru'], df['color_en'], df['material_ru'], df['material_en'],
+                            df['manufacturer'], df['date'], df['size'],
+                            df['name_folder'].str.replace(':', '_'))))
     return field_checking(new_dict)
 
 
@@ -19,7 +21,8 @@ def field_checking(new_dict):
 
 
 gc = gspread.service_account(filename='creds.json')
-wks = gc.open('МАТРИЦА ЛЕГПРОМ').worksheet('Master_box')
+wks = gc.open('InDesign').worksheet('label')
 df = pd.DataFrame(wks.get_all_records())
 master_box_dict = master_box_dict(df)
-# print(master_box_dict)
+
+# pprint(master_box_dict)

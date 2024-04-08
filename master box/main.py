@@ -12,7 +12,7 @@ import create_dict_from_google
 image_hb = images_base64.image_hb
 image_eac = images_base64.image_eac
 
-ean_13 = image_to_base64(generate_barcode.generate_ean13(4690624062827))
+ean_13 = image_to_base64(generate_barcode.generate_ean13_png(4690624062827))
 size = "86-92"
 color_ru = "ЧЁРНЫЙ"
 color_en = "BLACK"
@@ -45,15 +45,15 @@ output_pdf = 'master box.pdf'
 pdfkit.from_string(output_text, output_pdf, configuration=config, css='master box.css')
 
 
-def main():
-    print('Запуск обработки.\n')
-    master_box_dict = create_dict_from_google.master_box_dict
-    print(master_box_dict)
-
-    # sort_by_folders(folder_path, data_dicts)
-
-    print('Обработка завершена')
-
-
-if __name__ == "__main__":
-    main()
+# def main():
+#     print('Запуск обработки.\n')
+#     master_box_dict = create_dict_from_google.master_box_dict
+#     print(master_box_dict)
+#
+#     # sort_by_folders(folder_path, data_dicts)
+#
+#     print('Обработка завершена')
+#
+#
+# if __name__ == "__main__":
+#     main()

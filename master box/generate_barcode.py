@@ -1,10 +1,19 @@
 import barcode
-from barcode.writer import ImageWriter
+from barcode import EAN13_GUARD
+from barcode.writer import SVGWriter, ImageWriter
 
 
-def generate_ean13(ean_num) -> str:
-    """генерирует png изображение ШК, возвращает ссылку на него или имя"""
+def generate_ean13_svg(ean_num) -> str:
+    """генерирует svg изображение ШК, возвращает ссылку на него"""
+    fullname = f'images_EAN13_GUARD/{ean_num}.svg'
+    with open(fullname, 'wb') as f:
+        EAN13_GUARD(str(ean_num), writer=SVGWriter()).write(f)
+    return fullname
+
+
+def generate_ean13_png(ean_num) -> str:
+    """генерирует png изображение ШК, возвращает ссылку на него"""
     ean13 = barcode.get_barcode_class('ean13-guard')
     my_ean = ean13(str(ean_num), writer=ImageWriter())
-    fullname = my_ean.save('ean13_barcode')
+    fullname = my_ean.save(f'images_EAN13_GUARD/{ean_num}')
     return fullname
